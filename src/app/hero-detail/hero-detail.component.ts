@@ -20,7 +20,10 @@ export class HeroDetailComponent implements OnInit {
    * This simple control doesn't have data or validators.
    * In real apps, most form controls have both.
    */
-  name = new FormControl();
+  
+  heroForm = new FormGroup({
+    name : new FormControl()
+  });
 
   constructor() { }
 
