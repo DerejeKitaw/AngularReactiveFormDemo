@@ -33,10 +33,17 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit() {
   }
  
-  setValue(): void {
-    this.heroForm.setValue({
-      name: 'name',
-      
+  populateTestData(): void {
+    this.heroForm.patchValue({
+      name: 'Jack',
+      address: {
+        street: '123 Street',
+        city: 'Silver Spring',
+        State: 'MD',
+        zip:'20904'
+      },
+      power: 'strength',
+      sidekick: true
     });
   }
 }
