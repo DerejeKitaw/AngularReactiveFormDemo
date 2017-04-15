@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder ,FormGroup, Validators} from '@angular/forms';
 
+import { states } from '../data-model';
+
 @Component({
   selector: 'hero-detail',
   templateUrl: './hero-detail.component.html',

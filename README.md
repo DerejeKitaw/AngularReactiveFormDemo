@@ -27,3 +27,8 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 # AngularReactiveFormDemo
+
+# 03_More FormControls
+A hero has more than a name. A hero has an address, a super power and sometimes a sidekick too.
+
+The address has a state property. The user will select a state with a <select> box and you'll populate the <option> elements with states. So import states from data-model.ts.
