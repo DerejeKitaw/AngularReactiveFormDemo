@@ -15,7 +15,7 @@ export class HeroDetailComponent implements OnInit {
   constructor(private fb: FormBuilder) { // <--- inject FormBuilder
     this.createForm();
   }
-
+// watchForm values as state property added
   createForm() {
     this.heroForm = this.fb.group({
       name: ['', Validators.required], // <--- the FormControl called "name"
@@ -27,6 +27,7 @@ export class HeroDetailComponent implements OnInit {
       sidekick: ''
       
     });
+
   }
 
   ngOnInit() {
