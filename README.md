@@ -1,21 +1,20 @@
-#06_dataModelFormModel
-The data model and the form model
+#07_populatFormValueWithSetValue
+Populate the form model with setValue and patchValue
 
-At the moment, the form is displaying empty values. The HeroDetailComponent should display values of a hero, possibly a hero retrieved from a remote server.
+Previously you created a control and initialized its value at the same time. You can also initialize or reset the values later with the setValue and patchValue methods.
 
-In this app, the HeroDetailComponent gets its hero from a parent HeroListComponent
+setValue
+With setValue, you assign every form control value at once by passing in a data object whose properties exactly match the form model behind the FormGroup.
 
-The hero from the server is the data model. The FormControl structure is the form model.
+It will not accept a data object that doesn't match the FormGroup structure or is missing values for any control in the group. This way, it can return helpful error messages if you have a typo or if you've nested controls incorrectly. patchValue will fail silently.
 
-The component must copy the hero values in the data model into the form model. There are two important implications:
+On the other hand,setValue will catch the error and report it clearly.
 
-The developer must understand how the properties of the data model map to the properties of the form model.
+Notice that you can almost use the entire hero as the argument to setValue because its shape is similar to the component's FormGroup structure.
 
-User changes flow from the DOM elements to the form model, not to the data model. The form controls never update the data model.
+You can only show the hero's first address and you must account for the possibility that the hero has no addresses at all. This explains the conditional setting of the address property in the data object argument:
 
-The form and data model structures need not match exactly. You often present a subset of the data model on a particular screen. But it makes things easier if the shape of the form model is close to the shape of the data model.
+COPY CODE
+address: this.hero.addresses[0] || new Address()
 
-In this HeroDetailComponent, the two models are quite close.
-
-Recall the definition of Hero in data-model.ts:
-
+As of April 2017 not clear what setValue is doing. Belive it is used when passing values from component to component. Kep on eye

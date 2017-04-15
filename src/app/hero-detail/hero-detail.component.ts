@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { FormBuilder ,FormGroup, Validators} from '@angular/forms';
 
 import {Address,Hero, states } from '../data-model';
@@ -9,13 +9,15 @@ import {Address,Hero, states } from '../data-model';
   styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
+
   heroForm: FormGroup; // <--- heroForm is of type FormGroup
   states = states;
 
   constructor(private fb: FormBuilder) { // <--- inject FormBuilder
     this.createForm();
   }
-// watchForm values as state property added
+  
+  // watchForm values as state property added
   createForm() {
     this.heroForm = this.fb.group({         // <--- the parent FormGroup
       name: ['', Validators.required],      // <--- the FormControl called "name"
@@ -24,10 +26,17 @@ export class HeroDetailComponent implements OnInit {
       sidekick: ''
       
     });
+    
 
   }
 
   ngOnInit() {
   }
-
+ 
+  setValue(): void {
+    this.heroForm.setValue({
+      name: 'name',
+      
+    });
+  }
 }
