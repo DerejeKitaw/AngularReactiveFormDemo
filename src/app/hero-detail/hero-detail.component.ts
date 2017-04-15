@@ -10,6 +10,7 @@ import { states } from '../data-model';
 })
 export class HeroDetailComponent implements OnInit {
   heroForm: FormGroup; // <--- heroForm is of type FormGroup
+  states = states;
 
   constructor(private fb: FormBuilder) { // <--- inject FormBuilder
     this.createForm();
@@ -18,6 +19,13 @@ export class HeroDetailComponent implements OnInit {
   createForm() {
     this.heroForm = this.fb.group({
       name: ['', Validators.required], // <--- the FormControl called "name"
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      power: '',
+      sidekick: ''
+      
     });
   }
 
