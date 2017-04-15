@@ -17,12 +17,14 @@ export class HeroDetailComponent implements OnInit {
   }
 // watchForm values as state property added
   createForm() {
-    this.heroForm = this.fb.group({
+    this.heroForm = this.fb.group({    // <--- the parent FormGroup
       name: ['', Validators.required], // <--- the FormControl called "name"
-      street: '',
-      city: '',
-      state: '',
-      zip: '',
+      address: this.fb.group({         // <--- the child FormGroup
+        street: '',
+        city: '',
+        state: '',
+        zip: ''
+      }),
       power: '',
       sidekick: ''
       

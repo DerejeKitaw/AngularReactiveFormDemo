@@ -1,34 +1,10 @@
-# AngularReactiveFormDemo
+#04 Nested FormGroups
+This form is getting big and unwieldy. You can group some of the related FormControls into a nested FormGroup. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+The street, city, state, and zip are properties that would make a good address FormGroup. 
 
-## Development server
+Nesting groups and controls in this way allows you to mirror the hierarchical structure of the data model and helps track validation and state for related sets of controls.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You used the FormBuilder to create one FormGroup in this component called heroForm. 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# AngularReactiveFormDemo
-
-# 03_More FormControls
-A hero has more than a name. A hero has an address, a super power and sometimes a sidekick too.
-
-The address has a state property. The user will select a state with a <select> box and you'll populate the <option> elements with states. So import states from data-model.ts.
+Let that be the parent FormGroup. Use FormBuilder again to create a child FormGroup that encapsulates the address controls; assign the result to a new address property of the parent FormGroup.
