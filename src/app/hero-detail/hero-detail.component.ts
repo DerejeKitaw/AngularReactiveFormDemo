@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder ,FormGroup, Validators} from '@angular/forms';
 
-import { states } from '../data-model';
+import {Address,Hero, states } from '../data-model';
 
 @Component({
   selector: 'hero-detail',
@@ -17,14 +17,9 @@ export class HeroDetailComponent implements OnInit {
   }
 // watchForm values as state property added
   createForm() {
-    this.heroForm = this.fb.group({    // <--- the parent FormGroup
-      name: ['', Validators.required], // <--- the FormControl called "name"
-      address: this.fb.group({         // <--- the child FormGroup
-        street: '',
-        city: '',
-        state: '',
-        zip: ''
-      }),
+    this.heroForm = this.fb.group({         // <--- the parent FormGroup
+      name: ['', Validators.required],      // <--- the FormControl called "name"
+      address: this.fb.group(new Address()),// <-- a FormGroup with a new address
       power: '',
       sidekick: ''
       

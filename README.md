@@ -1,32 +1,21 @@
-#05_inspectFormControlProperties
-Inspect FormControl Properties
+#06_dataModelFormModel
+The data model and the form model
 
-At the moment, you're dumping the entire form model onto the page. Sometimes you're interested only in the state of one particular FormControl.
+At the moment, the form is displaying empty values. The HeroDetailComponent should display values of a hero, possibly a hero retrieved from a remote server.
 
-You can inspect an individual FormControl within a form by extracting it with the .get() method. You can do this within the component class or display it on the page by adding the following to the template, immediately after the {{form.value | json}} interpolation as follows:
-src/app/hero-detail.component.html
-COPY CODE
-<p>Name value: {{ heroForm.get('name').value }}</p>
-To get the state of a FormControl that’s inside a FormGroup, use dot notation to path to the control.
+In this app, the HeroDetailComponent gets its hero from a parent HeroListComponent
 
-src/app/hero-detail.component.html
-COPY CODE
-<p>Street value: {{ heroForm.get('address.street').value}}</p>
-You can use this technique to display any property of a FormControl such as one of the following:
+The hero from the server is the data model. The FormControl structure is the form model.
 
-Property	Description
-myControl.value	
-the value of a FormControl.
+The component must copy the hero values in the data model into the form model. There are two important implications:
 
-myControl.status	
-the validity of a FormControl. Possible values: VALID, INVALID, PENDING, or DISABLED.
+The developer must understand how the properties of the data model map to the properties of the form model.
 
-myControl.pristine	
-true if the user has not changed the value in the UI. Its opposite is myControl.dirty.
+User changes flow from the DOM elements to the form model, not to the data model. The form controls never update the data model.
 
-myControl.untouched	
-true if the control user has not yet entered the HTML control and triggered its blur event. Its opposite is myControl.touched.
+The form and data model structures need not match exactly. You often present a subset of the data model on a particular screen. But it makes things easier if the shape of the form model is close to the shape of the data model.
 
-Learn about other FormControl properties in the AbstractControl API reference.
+In this HeroDetailComponent, the two models are quite close.
 
-One common reason for inspecting FormControl properties is to make sure the user entered valid values. Read more about validating Angular forms in the Form Validation guide.
+Recall the definition of Hero in data-model.ts:
+
