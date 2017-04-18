@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Observable'
+import {Observable} from 'rxjs/RX'
 import {Hero} from '../data-model'
 import {HeroService} from '../hero.service'
 @Component({
