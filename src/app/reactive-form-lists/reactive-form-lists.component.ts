@@ -22,12 +22,25 @@ export class ReactiveFormListsComponent implements OnInit {
   
   final = this.demos.length; //Demo length
   demo = this.final   //Current demo
-  constructor(private heroService: HeroService) { }
+
   heroes: Observable<Hero[]>;
+  isLoading = false;
+  selectedHero: Hero;
+
+  constructor(private heroService: HeroService) { }
   ngOnInit() {
   }
+  getHeroes() {
+    this.isLoading = true;
+    this.heroes = this.heroService.getHeroes().finally(() => this.isLoading = false);
+    this.selectedHero = undefined;
+  }
+
+  select(hero: Hero) { this.selectedHero = hero; }
+
 //when selection change chang demo values
   selectDemo(demo: number) {
     demo = this.demo + 1;
+    this.getHeroes();
 }  
 }
