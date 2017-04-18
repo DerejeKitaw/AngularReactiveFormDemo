@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import {Observable} from 'rxjs/Observable'
+import {Hero} from '../data-model'
+import {HeroService} from '../hero.service'
 @Component({
   selector: 'reactive-form-lists',
   templateUrl: './reactive-form-lists.component.html',
@@ -21,8 +22,8 @@ export class ReactiveFormListsComponent implements OnInit {
   
   final = this.demos.length; //Demo length
   demo = this.final   //Current demo
-  constructor() { }
-
+  constructor(private heroService: HeroService) { }
+  heroes: Observable<Hero[]>;
   ngOnInit() {
   }
 //when selection change chang demo values

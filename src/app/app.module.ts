@@ -8,6 +8,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { ReactiveFormListsComponent } from './reactive-form-lists/reactive-form-lists.component';
 
+import { HeroService } from './hero.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { ReactiveFormListsComponent } from './reactive-form-lists/reactive-form-
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

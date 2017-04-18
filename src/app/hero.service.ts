@@ -16,7 +16,7 @@ export class HeroService {
 
   //Fake server update: assume nothing can go wrong
   updateHero(hero: Hero):Observable<Hero> {
-    const oldHero = heroes.find(h => h.id == hero.id);
+    const oldHero = heroes.find(h => h.id === hero.id);
     const newHero = Object.assign(oldHero, hero);//Demo mutate cached hero
     return of(newHero).delay(this.delayMs);//simulate latency with delay
   }
