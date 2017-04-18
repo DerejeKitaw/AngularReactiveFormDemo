@@ -2,8 +2,8 @@
   Pick a dimo:
 </div>
 <!--TODO: when selection change display forms-->
-<select
-[selectedIndex]="demo-1"
+<select [selectedIndex]="demo-1" (change)="selectDemo($event.target.selectedIndex)"
 >
- <option *ngFor="let demo of demos">{{demo}}</option> 
+ <option *ngFor="let item of demos">{{item}}</option> 
 </select>
+<div>You have selected Demo {{demo}}</div>

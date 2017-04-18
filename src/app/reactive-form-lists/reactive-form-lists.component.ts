@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'reactive-form-lists',
   templateUrl: './reactive-form-lists.component.html',
@@ -18,9 +19,14 @@ export class ReactiveFormListsComponent implements OnInit {
     'FormArray',
   ];
   
+  final = this.demos.length; //Demo length
+  demo = this.final   //Current demo
   constructor() { }
 
   ngOnInit() {
   }
-
+//when selection change chang demo values
+  selectDemo(demo: number) {
+    demo = this.demo + 1;
+}  
 }
