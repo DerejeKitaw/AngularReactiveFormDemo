@@ -17,7 +17,7 @@ export class ReactiveFormListsComponent implements OnInit {
     'PatchValue',
     'SetValue',
     'FormArray',
-  ];
+    'Final'].map(n=>n+ ' Demo');
   
   final = this.demos.length; //Demo length
   demo = this.final   //Current demo
