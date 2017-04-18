@@ -1,3 +1,9 @@
-<p>
-  reactive-form-lists works!
-</p>
+<div>
+  Pick a dimo:
+</div>
+<!--TODO: when selection change display forms-->
+<select
+[selectedIndex]="demo-1"
+>
+ <option *ngFor="let demo of demos">{{demo}}</option> 
+</select>
